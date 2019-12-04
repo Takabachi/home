@@ -1,2 +1,2 @@
-# home
-ホームリポジトリ
+# samurai_kadai_particle
+侍エンジニア塾のparticleリポジトリです
