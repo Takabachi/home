@@ -12,8 +12,6 @@ var canvas = document.getElementById("sample"); //定数
 var ctx = canvas.getContext("2d");  //定数
 
 function Particle(scale, color, speed){
-  //このthisは関数呼び出しパターン
-  //this=Particle
   this.scale = scale; // 大きさ
   this.color = color; //色
   this.speed = speed; //速度
@@ -33,14 +31,14 @@ var colors = ['gold', 'crimson', 'deepskyblue', 'lime'];  //定数
 
 for (var i=0; i<density; i++) {
   var color = colors[~~(Math.random()*4)];  //定数
-  var scale = ~~(Math.random()*(8-3))+3;    //定数
+  var scale = ~~(Math.random()*(8-3))+3;  //定数
   particles[i] = new Particle(scale, color, scale/2);
   particles[i].position.x = Math.random()*canvas.width;
   particles[i].position.y = Math.random()*canvas.height;
   particles[i].draw();
 }
 
-function loop(){
+function loop() {
   requestAnimFrame(loop);
   
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
