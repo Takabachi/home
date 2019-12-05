@@ -11,7 +11,7 @@ window.requestAnimFrame = (function(){
 var canvas = document.getElementById("sample"); //定数
 var ctx = canvas.getContext("2d");  //定数
 
-var Particle = function(scale, color, speed){
+function Particle(scale, color, speed){
   this.scale = scale; // 大きさ
   this.color = color; //色
   this.speed = speed; //速度
@@ -38,7 +38,7 @@ for (var i=0; i<density; i++) {
   particles[i].draw();
 }
 
-var loop = () => {
+function loop() {
   requestAnimFrame(loop);
   
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
