@@ -8,12 +8,10 @@ window.requestAnimFrame = (function(){
   ); 
 })();
 
-var canvas = document.getElementById("sample"); //定数
-var ctx = canvas.getContext("2d");  //定数
+let canvas = document.getElementById("sample");
+let ctx = canvas.getContext("2d");
 
-function Particle(scale, color, speed){
-  //このthisは関数呼び出しパターン
-  //this=Particle
+let Particle = function(scale, color, speed){
   this.scale = scale; // 大きさ
   this.color = color; //色
   this.speed = speed; //速度
@@ -27,25 +25,25 @@ Particle.prototype.draw = function() {
   ctx.fill();
 };
 
-var density = 300;  //定数
-var particles = []; //定数
-var colors = ['gold', 'crimson', 'deepskyblue', 'lime'];  //定数
+let density = 300;  
+let particles = []; 
+let colors = ['gold', 'crimson', 'deepskyblue', 'lime'];
 
-for (var i=0; i<density; i++) {
-  var color = colors[~~(Math.random()*4)];  //定数
-  var scale = ~~(Math.random()*(8-3))+3;    //定数
+for (let i=0; i<density; i++) {
+  let color = colors[~~(Math.random()*4)];
+  let scale = ~~(Math.random()*(8-3))+3;
   particles[i] = new Particle(scale, color, scale/2);
   particles[i].position.x = Math.random()*canvas.width;
   particles[i].position.y = Math.random()*canvas.height;
   particles[i].draw();
 }
 
-function loop(){
+let loop = () => {
   requestAnimFrame(loop);
   
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
   
-  for (var i=0; i<density; i++) {
+  for (let i=0; i<density; i++) {
     particles[i].position.x += particles[i].speed;
     particles[i].draw();
 
